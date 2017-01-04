@@ -1,65 +1,81 @@
----
-layout: default
----
-
-<div class="home">
+--- 
+2 layout: default 
+3 --- 
+4 
  
-  
-    <div class="row pack">
-
-        {% for post in paginator.posts %}   
-            <div class="col-md-4 card">
-                 
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3><span class="post-meta pull-right"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
-                  </div>
-                  {% if post.img %}
-                  <img width="100%" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
-                  {% else %}
-                  <img width="100%" src="{{site.baseurl}}/images/webjeda-logo-big.jpg" alt="{{site.title}}">
-                  {% endif %}
-                  <div class="panel-body"><small>
-                    {{ post.excerpt | strip_html | strip_newlines | truncate: 160 }}</small>
-                    <a href="{{ post.url | prepend: site.baseurl }}" class="btn btn-primary btn-sm pull-right mt10">Read</a>
-                  </div>
-                </div>
-            </div>
-        
-          {% endfor %}
-
-    </div> 
-    
-<div class="row">
-    <div class="col-md-4">  </div>
-    <div class="col-md-4">
-        {% if paginator.total_pages > 1 %}
-        <ul class="pagination">
-          {% if paginator.previous_page %}
-            <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
-          {% else %}
-            <li><span>&laquo; Prev</span></li>
-          {% endif %}
-
-          {% for page in (1..paginator.total_pages) %}
-            {% if page == paginator.page %}
-              <li class="active"><span><em>{{ page }}</em></span></li>
-            {% elsif page == 1 %}
-            <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
-            {% else %}
-            <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
-            {% endif %}
-          {% endfor %}
-
-          {% if paginator.next_page %}
-            <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
-          {% else %}
-            <li><span >Next &raquo;</span></li>
-          {% endif %}
-          </ul>
-        {% endif %}
-
-    </div>
-    <div class="col-md-4">  </div>
-</div>
-</div>
+5 <body>	 
+6      <div class="brief"> 
+7      <table  border="0" cellpadding="0" cellspacing="0" > 
+8         <h2><img alt="My picture" src="img/xinyi.jpg" align="left" border="0" height="290" hspace="15" vspace="25" width="387"></h2> 	     
+9         <h2>Anyi Rao </h2> 
+10             Undergraduate Student <br> 
+11             <a href="http://ese.nju.edu.cn">School of Electronic Science and Engineering</a><br> 
+12             <a href="http://www.nju.edu.cn/en">Nanjing University</a><br> 
+13             China<br> 
+14             Email: raoanyi [at] foxmail (dot) com   
+15      </table>      
+16      </div> 
+17   
+18      
+19    <div class="content anchor" id="research">      
+20       <div class="text">          <h3>Academic</h3> 
+21           <p>My GPA ranks No.1 in each academic year. All major curriculums are above 95 (A+).  
+22              My overall GPA is 4.79. I am the top student among 183 classmates in my school.  
+23            
+24 	      <p>I finished my major curriculums in 2 years and I learned a lot from online course. <br> 
+25 		      -David Jerison. 18.01: Single Variable Calculus. MIT.<br> 
+26                       -Denis Auroux. 18.02: Multivariable Calculus. MIT.<br> 
+27                       -Dennis Freeman. 6.01: Introduction to Electrical Engineering and Computer Science I. MIT. <br> 
+28                       -Gilbert Strang. 18.06: Linear Algebra. MIT.<br> 
+29 		      -Andrew Ng. cs229: Machine Learning. Stanford.<br> 
+30                       -Fei-Fei Li & Andrej Karpathy. cs231n: Convolutional Neural Networks for Visual Recognition. Stanford. 
+31              </p> 
+32            
+33           <h3>Research</h3> 
+34             <p>Oct.2014-Dec,2015  Research Institute of Superconductor Electronics (RISE), Nanjing University <br> 
+35             Single-Photon Detector, main contributor<br> 
+36 	       Designed a 64 road low-noise pre-amplifier using a symmetric structure  
+37             Drew 8 layers PCB; Altium 
+38             Reduced noise by 100 times 
+39            
+40             <p>Aug.2016-Sep.2016  Road Car Flow and Its Effect on Roads, leader  <br> 
+41 	       Constructed 3 models to depict road circumstances and 1 model to predict car motion; Matlab, C 
+42             Written a sugestion report to ministry of transportation  
+43                   
+44            <p>Aug.2016-present Visual Sensing and Graphics Lab (VISG Lab), Nanjing University <br> 
+45            3D Reconstruction Using (Light Detection And Ranging) Lidar and Camera <br> 
+46 	      Collected point cloud datasets for indoor 3D scene reconstruction 
+47            Implemented low drift odometry and  mapping algorithms from recent papers to improve accuracy 
+48            Calibrated and dyed reconstruction results by applying camera information    
+49       </div>  
+50    </div> 
+51      
+52      
+53    <div class="content anchor" id="bio">      
+54       <div class="text"> 
+55           <h3>Short Bio</h3> 
+56            <p> I am a third year student 4from School of Electronic Science and Engineering, Nanjing University.  
+57                I am a member of <a href="http://www.moe.gov.cn/publicfiles/business/htmlfiles/moe/s3860/201102/115066.html">Excellent Engineer Training Program</a>,  
+58 		   from <a href="http://www.moe.gov.cn/">Ministry of Education of China</a>. My research interests lie on the intersection of computer vision, 
+59 		   machine learning and artificial intelligence.  
+60            <p> I got a meritorious prize in national modeling contest.  <span class="tag"><a href="papers/national_model.pdf"> Paper</a></span></p> 
+61       </div> 
+62    </div> 
+63 	 
+64    	 
+65    <div class="content" >       
+66           <h3>Awards</h3> 
+67            <p>  National Scholarship, by Minstry of Education of China <br> 
+68                 Nanjing University Excellent Student Leader Award <br> 
+69                 Nanjing University Excellent Student Award </p> 
+70    </div>     
+71     
+72    <div class="content" >       
+73           <h3>Miscellaneous</h3> 
+74            <p>  Internship in CHANGJIANG ELEC. TECH. (JCET) <span class="tag"><a href="http://ese.nju.edu.cn/content-8-3133-1.html">  Report</a></span><br> 
+75                 Member of Nanjing University Chrous  </p> 
+76    </div>	 
+77 <a href='https://clustrmaps.com/site/17y2j' title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=cbe090&w=300&d=wqSPPLOdbjS8swCrhsthoXUrpBZpYFIUoU6NVvkcCEE&t=tt&co=2d78ad&ct=ffffff'/></a> 
+78 
+ 
+79 </body> 
